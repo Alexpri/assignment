@@ -1,0 +1,62 @@
+.vue-tags-input {
+  div.ti-input {
+    padding: 0;
+    border: none;
+  }
+  .ti-tags {
+    min-height: 40px;
+    display: block;
+    padding: 8px 12px 0 2px;
+    border-radius: 5px;
+    border: 1px solid $border-field-color;
+    background: #fff;
+    font-size: 14px;
+
+    .ti-tag {
+      position: relative;
+      padding: 6px 26px 6px 8px;
+      margin: 0 10px 8px 0;
+      border-radius: 16px;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      color: $base-text-color;
+      line-height: 1;
+      max-width: 100%;
+      text-overflow: ellipsis;
+      background: #f0f0f0;
+      border-radius: 16px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    div.ti-actions {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      font-size: 14px;
+      opacity: 0.75;
+      transition: opacity 0.15s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  li.ti-new-tag-input-wrapper {
+    height: 24px;
+    margin: 0 0 8px;
+
+    input {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+
+  div.ti-content {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
