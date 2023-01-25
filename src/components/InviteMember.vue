@@ -7,6 +7,7 @@
         <tags-input
           v-model="emailTag"
           :tags="emailsList"
+          placeholder="Add email"
           :avoid-adding-duplicates="true"
           @before-adding-tag="updateEmails"
         />
@@ -15,13 +16,17 @@
         </div>
       </div>
       <div>
-        <button class="primary-btn" type="button">Send invite</button>
+        <button class="primary-btn" type="button" @click="inviteHandler">
+          Send invite
+        </button>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import { reactive, ref } from "vue";
+import { reactive, ref, defineEmits } from "vue";
+
+const emit = defineEmits(["loadData"]);
 
 interface IaddingCallback {
   (): void;
@@ -42,16 +47,21 @@ function updateEmails({
 }): void {
   clearTimeout(timeoutCounter.value);
   timeoutCounter.value = setTimeout(() => {
-    console.log(tag, addTag);
     isValidEmail.value = !!tag.text.match(
       /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/
     );
     if (isValidEmail.value) {
-      addTag();
+      if (!emailsList.includes(tag.text)) {
+        addTag();
+      }
     } else {
       showValidationError.value = true;
     }
   }, 300);
+}
+
+function inviteHandler(): void {
+  emit("loadData");
 }
 </script>
 
@@ -67,6 +77,7 @@ function updateEmails({
   position: relative;
   display: flex;
   flex-direction: row;
+  padding-bottom: 40px;
 }
 .invite-members-input-wrapper {
   width: 444px;
