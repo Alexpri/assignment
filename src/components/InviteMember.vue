@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h4>Invite Members</h4>
-    <label class="invite_label">Invite members</label>
+    <label class="invite-label">Invite members</label>
     <div class="invite-members-block">
       <div class="invite-members-input-wrapper">
         <tags-input
@@ -66,7 +66,9 @@ function inviteHandler(): void {
 </script>
 
 <style scoped lang="scss">
-.invite_label {
+.invite-label {
+  display: block;
+  margin-bottom: 4px;
   color: $primary-super-gray-color;
   font-weight: 400;
   font-size: 12px;
