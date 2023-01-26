@@ -1,9 +1,15 @@
 @import url(normalizer.scss);
+@import url(tag-input.scss);
 @import url(multiselect.scss);
 
 body {
   color: $base-text-color;
+  font-size: 14px;
   font-family: "Inter", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 h3 {
@@ -36,9 +42,16 @@ button {
   cursor: pointer;
 }
 
+.home {
+  padding-bottom: 250px;
+}
+
 .primary-btn {
-  color: white;
   padding: 10px 12px;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
   background-color: $primary-purple-color;
   box-shadow: 0px 1px 1px rgba(31, 41, 54, 0.12),
     0px 2px 6px rgba(110, 0, 255, 0.16);
